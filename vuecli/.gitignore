@@ -1,9 +1,7 @@
 .DS_Store
 node_modules
 /dist
-/public/hot
 
-mix-manifest.json
 yarn.lock
 # local env files
 .env.local
