@@ -1,15 +1,20 @@
 <template>
-  <Calculator/>
+  <div class="container">
+    <HelloWorld />
+    <Calculator />
+  </div>
 </template>
 
 <script>
+import HelloWorld from "@/components/HelloWorld.vue";
 import Calculator from "@/components/Calculator.vue";
 export default {
   name: "App",
   components: {
-    Calculator
-  }
-}
+    HelloWorld,
+    Calculator,
+  },
+};
 </script>
 
 <style scoped>
