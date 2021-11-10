@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="task in tasks">
+    <li v-for="task in tasks" v-bind:key="task">
       <a href="#"  @click.prevent="clickTask(task)">{{ task.name }}</a>
     </li>
   </ul>
