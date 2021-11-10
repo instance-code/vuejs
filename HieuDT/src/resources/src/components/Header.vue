@@ -21,9 +21,9 @@
           <router-link :to="{name:'Calculator'}" class="nav-link" >Calculator</router-link>
         </li>
         <li class="nav-item dropdown">
-          <router-link to="/" class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
-          </router-link>
+          </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
