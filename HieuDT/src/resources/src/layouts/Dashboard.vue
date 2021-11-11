@@ -1,37 +1,33 @@
 <template >
-   <div>
-       <div>this is dashboard</div>
-       <Button >
-           <template v-slot:content>
-                   Dashboard
-           </template>
-       </Button>
-       <Modal>
-
-           <template v-slot:header>
-        <h1>Here might be a page title</h1>
+  <div>
+    <div>this is dashboard</div>
+    <Button>
+      <template v-slot:content> Dashboard </template>
+    </Button>
+    <Modal>
+      <template #header
+        ><!-- using the shorthand for `v-slot` -->
+        <h5>Awesome Interruption!</h5>
       </template>
-
-      <template v-slot:default>
-        <p>A paragraph for the main content.</p>
-        <p>And another one.</p>
+      <template #body>
+        <p>
+          We interrupt your use of our application to let you know that this
+          application is awesome and you should continue using it every day for
+          the rest of your life!
+        </p>
       </template>
-
-      <template v-slot:footer>
-        <p>Here's some contact info</p>
+      <template #footer>
+        <em>Now back</em>
       </template>
-       </Modal>
-   </div>
-    
+    </Modal>
+  </div>
 </template>
 <script>
-import Button from '../components/Button.vue'
-import Modal from '../components/Modal.vue'
+import Button from "../components/Button.vue";
+import Modal from "../components/Modal.vue";
 export default {
   components: { Button, Modal },
-    
-}
+};
 </script>
 <style lang="">
-    
 </style>

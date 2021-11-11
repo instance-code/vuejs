@@ -1,8 +1,11 @@
 <template lang="">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
-</button>
+</button> -->
+<Button data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <template v-slot:content>Open modal</template>
+</Button>
 
 <!-- Modal -->
 <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -26,3 +29,9 @@
         
     
 </template>
+<script>
+import Button from '../components/Button.vue'
+export default {
+    components:{Button}
+}
+</script>
