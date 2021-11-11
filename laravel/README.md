@@ -1,8 +1,11 @@
 ## Cài đặt Laravel từ 1 repo clone về
 
 1. Tạo file .env từ file .env.example (đơn giản là copy nội dung file .env.example sang file .env vừa tạo)
+check: path project: echo $PWD
+b1: composer install
+b2: npm install
 ```
-cp .env.example .env
+B3:cp .env.example .env
 
 ```
 
@@ -25,8 +28,8 @@ php artisan serve --port {YOUR_PORT}
 
 ### với npm:
 ```
-npm install
-npm run hot
+B4: npm install
+    npm run hot
 
 ```
 
