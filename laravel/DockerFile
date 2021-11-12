@@ -1,0 +1,19 @@
+FROM php:8-fpm-alpine
+
+WORKDIR /var/www/html
+
+# RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql
+
+RUN /bin/sh
+
+#RUN docker-php-ext-install redis
+
+RUN chown -R www-data:www-data /var/www
+RUN chmod 755 /var/www
+
+CMD ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]
+# RUN apk add libzip-dev
+
+
+

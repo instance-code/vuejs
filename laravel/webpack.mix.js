@@ -1,5 +1,5 @@
-const mix = require('laravel-mix');
-const path = require('path');
+const mix = require("laravel-mix");
+const path = require("path");
 
 /*
  |--------------------------------------------------------------------------
@@ -12,40 +12,40 @@ const path = require('path');
  |
  */
 mix.options({
-  hmrOptions: {
-    host: 'localhost',
-    port: process.env.HMR_PORT || 8080
-  },
+    hmrOptions: {
+        host: "localhost",
+        port: process.env.HMR_PORT || 8080,
+    },
 });
 mix.webpackConfig((webpack) => {
-  return {
-    resolve: {
-      alias: {
-        '@': path.resolve('resources/src'),
-        '@lang': path.resolve('resources/lang'),
-      }
-    },
-    output: {
-      chunkFilename: 'js/[hash][name].bundle.js',
-    },
-    devServer: {
-      proxy: {
-        '*': 'http://0.0.0.0',
-      },
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
-      port: process.env.HMR_PORT || 8080
-    },
-    plugins:[
-      new webpack.DefinePlugin({
-        __INTLIFY_PROD_DEVTOOLS__ : 'false'
-      })
-    ]
-  }
+    return {
+        resolve: {
+            alias: {
+                "@": path.resolve("resources/src"),
+                "@lang": path.resolve("resources/lang"),
+            },
+        },
+        output: {
+            chunkFilename: "js/[hash][name].bundle.js",
+        },
+        devServer: {
+            proxy: {
+                "*": "http://0.0.0.0",
+            },
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
+            port: process.env.HMR_PORT || 8080,
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                __INTLIFY_PROD_DEVTOOLS__: "false",
+            }),
+        ],
+    };
 })
-.vue({version: 3})
-.disableNotifications()
+    .vue({ version: 3 })
+    .disableNotifications();
 // .polyfill({
 //   enabled: true,
 //   useBuiltIns: "usage",
@@ -54,8 +54,8 @@ mix.webpackConfig((webpack) => {
 // .sourceMaps(false);
 // .sourceMaps(!mix.inProduction);
 if (mix.inProduction()) {
-  mix.version();
+    mix.version();
 }
 
-mix.js('resources/src/app.js', 'public/js');
-mix.sass('resources/src/assets/app.scss', 'public/css');
+mix.js("resources/src/app.js", "public/js");
+mix.sass("resources/src/assets/app.scss", "public/css");

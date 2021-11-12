@@ -1,15 +1,56 @@
 <template>
-  <ul>
-    <li v-for="task in tasks">
-      <a href="#"  @click.prevent="clickTask(task)">{{ task.name }}</a>
-    </li>
-  </ul>
-  <div v-if="!Object.keys(activeTask).length">
-    Không có giá trị nào được chọn!
-  </div>
-  <div v-else class="d-flex justify-between">
-    <span>{{ activeTask.name }}</span>
-    <span>{{ activeTask.status ? "Hoàn Thành" : "Chưa hoàn thành" }}</span>
+  <div class="container">
+    <h1>Test</h1>
+    <table class="table table-bordered" id="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Họ</th>
+          <th>Tên</th>
+          <th>
+            <button @click.prevent="addRow" class="btn btn-primary">Add</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(user, index) in users" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              v-model="user.firstName"
+              placeholder="Nhập tên họ"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              v-model="user.lastName"
+              placeholder="Nhập tên"
+            />
+          </td>
+          <td>
+            <button
+              @click.prevent="remove(index)"
+              :disabled="disable"
+              class="btn btn-danger"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary pull-left" @click.prevent="save">
+          Save
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,20 +58,36 @@
 export default {
   data() {
     return {
-      tasks: [
-        { id: 1, name: "Laravel", status: false },
-        { id: 2, name: "Vuejs", status: true },
-        { id: 3, name: "Bootstrap", status: false },
+      users: [
+        {
+          position: 1,
+          firstName: "",
+          lastName: "",
+        },
       ],
-      activeTask: {}
-    }
+    };
+  },
+
+  computed: {
+    disable() {
+      return this.users.length === 1 ? 1 : 0;
+    },
   },
 
   methods: {
-    clickTask(task) {
-      this.activeTask = task;
-    }
-  }
-}
+    addRow() {
+      this.users.push({
+        position: this.users.length + 1,
+        firstName: "",
+        lastName: "",
+      });
+    },
+    remove(index) {
+      this.users.splice(index, 1);
+    },
+    save() {
+      console.log(this.users);
+    },
+  },
+};
 </script>
-

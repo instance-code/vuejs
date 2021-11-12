@@ -1,13 +1,11 @@
-'use strict';
-
-import { createApp } from 'vue';
-import App from '@/App.vue';
+import { createApp } from "vue";
+import App from "./App.vue";
 
 const app = createApp(App);
 const plugin = {
-  install () {
-    // app.config.globalProperties.$axios = axios;
-  }
+    install() {
+        // app.config.globalProperties.$axios = axios;
+    },
 };
 
 // [store, i18n, router, plugin].forEach((i) => {
@@ -15,4 +13,3 @@ const plugin = {
 // });
 
 app.mount("#app");
-
