@@ -1,15 +1,25 @@
 <template>
-  <ul>
-    <li v-for="task in tasks">
-      <a href="#"  @click.prevent="clickTask(task)">{{ task.name }}</a>
-    </li>
-  </ul>
-  <div v-if="!Object.keys(activeTask).length">
-    Không có giá trị nào được chọn!
-  </div>
-  <div v-else class="d-flex justify-between">
-    <span>{{ activeTask.name }}</span>
-    <span>{{ activeTask.status ? "Hoàn Thành" : "Chưa hoàn thành" }}</span>
+  <div class="calculator">
+    <div class="display">{{ current || '0'}}</div>
+    <div @click="clear" class="btn">C</div>
+    <div @click="sign" class="btn">+/-</div>
+    <div @click="percent" class="btn">%</div>
+    <div @click="devide" class="btn operator">/</div>
+    <div @click="append('7')" class="btn">7</div>
+    <div @click="append('8')" class="btn">8</div>
+    <div @click="append('9')" class="btn">9</div>
+    <div @click="multi" class="btn operator">x</div>
+    <div @click="append('4')" class="btn">4</div>
+    <div @click="append('5')" class="btn">5</div>
+    <div @click="append('6')" class="btn">6</div>
+    <div @click="minus" class="btn operator">-</div>
+    <div @click="append('1')" class="btn">1</div>
+    <div @click="append('2')" class="btn">2</div>
+    <div @click="append('3')" class="btn">3</div>
+    <div @click="add" class="btn operator">+</div>
+    <div @click="append('0')" class="btn zero">0</div>
+    <div @click="dot" class="btn">.</div>
+    <div @click="equal" class="btn operator">=</div>
   </div>
 </template>
 
@@ -17,20 +27,92 @@
 export default {
   data() {
     return {
-      tasks: [
-        { id: 1, name: "Laravel", status: false },
-        { id: 2, name: "Vuejs", status: true },
-        { id: 3, name: "Bootstrap", status: false },
-      ],
-      activeTask: {}
+      current: '',
+      operator: null,
+      previous: null,
+      operatorClicked: false,
     }
   },
-
   methods: {
-    clickTask(task) {
-      this.activeTask = task;
+    clear() {
+      this.current = '';
+    },
+    sign() {
+      this.current = this.current.charAt(0) === "-" ? this.current.slice(1) : `-${this.current}`;
+    },
+    percent() {
+      this.current = parseFloat(this.current)/100;
+    },
+    append(number) {
+      if(this.operatorClicked == true){
+        this.current = '';
+        this.operatorClicked = false;
+      }
+      this.current = `${this.current}${number}`;
+    },
+    dot() {
+      if (this.current.indexOf('.') === -1){
+        this.append('.');
+      }
+    },
+    setPrevious() {
+      this.previous = this.current;
+      this.operatorClicked = true;
+    },
+    devide() {
+      this.operator = (a,b) => a / b;
+      this.setPrevious();
+    },
+    multi() {
+      this.operator = (a,b) => a * b;
+      this.setPrevious();
+    },
+    minus() {
+      this.operator = (a,b) => b - a;
+      this.setPrevious();
+    },
+    add() {
+      this.operator = (a,b) => a + b;
+      this.setPrevious();
+    },
+    equal() {
+      this.current = this.operator(
+        parseFloat(this.current),parseFloat(this.previous)
+      );
+      this.previous = null;
     }
   }
 }
 </script>
 
+<style scoped>
+.calculator {
+  margin: 0 auto;
+  width: 400px;
+  font-size: 40px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.display {
+  grid-column: 1/5;
+  background: #333 ;
+  color: white;
+  text-align: center;
+}
+
+.zero {
+  grid-column: 1/3;
+}
+
+.btn {
+  background: #eee;
+  border: 1px solid #999;
+  text-align: center;
+}
+
+.operator {
+  background: orange;
+  color: white;
+}
+</style>
