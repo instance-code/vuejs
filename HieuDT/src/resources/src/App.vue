@@ -9,7 +9,7 @@
 
    
   </div>
-</template>
+</template>c
 <script>
 import Header from "./components/Header.vue";
 export default {

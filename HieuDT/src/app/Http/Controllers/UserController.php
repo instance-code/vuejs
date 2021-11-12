@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 use function App\Helpers\testHelper;
 
+
 class UserController extends Controller
 {
 
@@ -118,5 +119,9 @@ class UserController extends Controller
     public function testHelper(){
         $res=testHelper();
         return $res;
+    }
+
+    public function getCookie(){
+        
     }
 }

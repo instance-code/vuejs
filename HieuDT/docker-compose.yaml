@@ -19,6 +19,7 @@ services:
       - mysql
     networks:
       - pr-network
+    
   mysql:
     image: 'mysql:5.7.22'
     container_name: 'mysql_${APP_NAME}'
@@ -64,6 +65,9 @@ services:
     working_dir: /var/www/html
     entrypoint: 
       - npm
+  
+    
+ 
   
 
     
