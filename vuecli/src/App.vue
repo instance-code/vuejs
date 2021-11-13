@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <Calculator />
+    <TodoApp />
+
   </div>
 </template>
 
 <script>
 import Calculator from './components/Calculator.vue'
+import TodoApp from './components/TodoApp.vue'
 
 export default {
   name: 'app',
   components: {
-    Calculator
+    Calculator,
+    TodoApp,
+
   }
 }
 </script>
