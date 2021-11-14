@@ -2,7 +2,6 @@ version: '3'
 networks:
   pr-network: 
    driver: bridge
-
 services:
   nginx: 
     image: 'nginx:stable-alpine'
