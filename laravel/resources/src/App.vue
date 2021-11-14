@@ -1,14 +1,17 @@
 <template>
-  <Calculator/>
+  <!-- <Calculator/> -->
+  <TableComp />
 </template>
 
 <script>
-import Calculator from "./components/Calculator";
+// import Calculator from "./components/Calculator";
+import TableComp from "./components/vue_example/TableComp.vue";
 
 export default {
   name: 'App',
   components: {
-    Calculator,
+    // Calculator,
+    TableComp,
   },
 };
 </script>
