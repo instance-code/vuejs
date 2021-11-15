@@ -2,6 +2,7 @@
 
 import { createApp } from 'vue';
 import App from '@/App.vue';
+import router from './router/routes';
 
 const app = createApp(App);
 const plugin = {
@@ -14,5 +15,6 @@ const plugin = {
 //   app.use(i);
 // });
 
+app.use(router);
 app.mount("#app");
 

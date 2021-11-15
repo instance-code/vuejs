@@ -1,19 +1,17 @@
 <template>
-  <div class="container">
-    <HelloWorld />
-    <Calculator />
+  <div>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/computer">Calculator</router-link> |
+      <router-link to="/add">Add Name</router-link> |
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-import Calculator from "@/components/Calculator.vue";
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-    Calculator,
-  },
 };
 </script>
 
@@ -24,6 +22,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
 
