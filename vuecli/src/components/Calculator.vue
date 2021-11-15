@@ -105,7 +105,7 @@ export default {
     },
     convertDecimal () {
       if (this.clickedOperator) {
-        this.current += '.'
+        this.current = '0.'
         this.clickedOperator = false
       }
       if (this.current.indexOf('.') === -1) {
@@ -119,7 +119,8 @@ export default {
       this.result = this.current
     },
     changeSign () {
-      this.current = this.current.charAt(0) === '-' ? this.current.slice(1) : `-${this.current}`
+      // this.current = this.current.charAt(0) === '-' ? this.current.slice(1) : `-${this.current}`
+      this.current *= -1
       this.result = this.current
     },
   }
