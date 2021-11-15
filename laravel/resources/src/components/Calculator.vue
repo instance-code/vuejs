@@ -1,7 +1,4 @@
 <template>
-    <div class="hello">
-        <h1>{{ msg }}</h1>
-    </div>
     <div class="col-md-4 m-3">
         <table class="table table-bordered">
             <tbody>
