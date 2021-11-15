@@ -1,41 +1,43 @@
 <template>
   <div id="add">
-    <!-- User management -->
-    <h1>User</h1>
-    <button class="btn btn-add" @click="addUserForm">Add Form</button> |
+    <button class="btn btn-add" @click="addUserForm">Add</button> |
     <button class="btn btn-save" @click="saveUser">Save</button>
 
     <h2>Forms({{ formData.length }})</h2>
-    <table class="table">
-      <thead>
+
+    <table>
         <tr>
           <th scope="col">#</th>
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
+          <th scope="col">Active</th>
         </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
+        <FormAddComp
+          v-for="i in formData.length"
+          :key="'form' + i"
+          :indexInArray="i - 1"
+          @changeFormData="changeFormData"
+          @removeUserForm="removeUserForm"
+        />
     </table>
-    <FormAddComp
-      v-for="i in formData.length"
-      :key="'form' + i"
-      :indexInArray="i - 1"
-      @changeFormData="changeFormData"
-      @removeUserForm="removeUserForm"
-    />
 
-    <h2>Users({{ usersData.length }})</h2>
-    <ItemUserComp
-      v-for="i in usersData.length"
-      :key="'item' + i"
-      :indexInArray="i - 1"
-      :userData="usersData[i - 1]"
-      @removeUser="removeUser"
-    />
+    <h2>Results({{ usersData.length }})</h2>
+    <table>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Active</th>
 
-    <!-- User management -->
+        </tr>
+        <ItemUserComp
+          v-for="i in usersData.length"
+          :key="'item' + i"
+          :indexInArray="i - 1"
+          :userData="usersData[i - 1]"
+          @removeUser="removeUser"
+        />
+    </table>
   </div>
 </template>
 
@@ -79,6 +81,7 @@ export default {
 
       this.usersData = this.usersData.concat(this.formData);
       this.formData = [];
+      console.log(this.usersData);
     },
   },
 };
@@ -115,5 +118,17 @@ img {
 }
 .btn-remove {
   background-color: #ff3333;
+}
+
+table, td, th {
+  margin-left: 25%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
 }
 </style>

@@ -139,6 +139,7 @@ export default {
   background-color: #f2f2f2;
   border: 2px solid #333;
   border-radius: 100%;
+  color: black;
 }
 
 .btn:hover {
