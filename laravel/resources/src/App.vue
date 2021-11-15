@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Test</h1>
+    <h1>Tạo Bảng</h1>
     <table class="table table-bordered" id="table">
       <thead>
         <tr>
@@ -46,16 +46,32 @@
 
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-primary pull-left" @click.prevent="save">
+        <button
+          class="btn btn-primary"
+          :disabled="saveBtn"
+          @click.prevent="save"
+        >
           Save
         </button>
       </div>
     </div>
+    <teleport to="body">
+      <error-alert v-if="inputIsInvalid">
+        <h2>Input Is Invalid</h2>
+        <p>Please Enter Data</p>
+        <button @click="closeAlert">Close</button>
+      </error-alert>
+    </teleport>
   </div>
 </template>
 
 <script>
+import ErrorAlert from "./components/ErrorAlert.vue";
+
 export default {
+  components: {
+    ErrorAlert,
+  },
   data() {
     return {
       users: [
@@ -65,12 +81,27 @@ export default {
           lastName: "",
         },
       ],
+      inputIsInvalid: false,
     };
+  },
+
+  watch: {
+    inputIsInvalid() {
+      setTimeout(() => {
+        this.inputIsInvalid = false;
+      }, 5000);
+    },
   },
 
   computed: {
     disable() {
       return this.users.length === 1 ? 1 : 0;
+    },
+    saveBtn() {
+      return this.users.length === 1 &&
+        (this.users["0"].firstName === "" || this.users["0"].lastName === "")
+        ? 1
+        : 0;
     },
   },
 
@@ -86,7 +117,16 @@ export default {
       this.users.splice(index, 1);
     },
     save() {
-      console.log(this.users);
+      for (let i = 0; i < this.users.length; i++) {
+        if (this.users[i].firstName === "" || this.users[i].lastName === "") {
+          return (this.inputIsInvalid = true);
+        }
+      }
+      console.log(JSON.parse(JSON.stringify(this.users)));
+    },
+
+    closeAlert() {
+      this.inputIsInvalid = false;
     },
   },
 };
