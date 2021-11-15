@@ -14,5 +14,7 @@ const plugin = {
 //   app.use(i);
 // });
 
+app.component('exercise',require('./vue_example/Exam.vue').default);
+
 app.mount("#app");
 

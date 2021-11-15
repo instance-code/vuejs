@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <exercise></exercise>
+    </div>
+
     <script>
         window.config = '{!! json_encode(config('setting')) !!}';
     </script>
