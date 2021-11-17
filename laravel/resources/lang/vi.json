@@ -1,0 +1,16 @@
+{
+    "blog_title" : "TIêu đề",
+    "blog_content" : "Nội dung",
+    "created_by" : "Người viết",
+    "updated_by" : "Người viết",
+    "updated_date": "Ngày cập nhất",
+    "action": "Action",
+    "delete_post": "Post Deleted",
+    "delete_select_post": "Bài viết lựa chọn đã được xóa",
+    "update_post": "Post Updated",
+    "required_id": "Need selected",
+    "edit": "Sửa",
+    "delete": "Xóa",
+    "vi": "Tiếng Việt",
+    "en": "Tiếng Anh"
+}
