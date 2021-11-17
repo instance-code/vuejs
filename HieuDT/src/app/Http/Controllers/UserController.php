@@ -124,4 +124,24 @@ class UserController extends Controller
     public function getCookie(){
         
     }
+    public function login(Request $request){
+        // $request->validate([
+        //     'email'=>'email|required',
+        //     'password'=>'required|min:5'
+        // ]);
+        $request->validateWithBag('email',[
+            'email'=>['required','email']
+        ]);
+        $request->validateWithBag('password',[
+            'password'=>['required','min:7']
+        ]);
+
+        $request->validateWithBag('name',[
+            'name'=>['required','min:7']
+        ]);
+
+    }
+    public function signin(RegisterUserRequest $request){
+        $request->validated();
+    }
 }

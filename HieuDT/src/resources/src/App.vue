@@ -11,7 +11,7 @@
   </div>
 </template>c
 <script>
-import Header from "./components/Header.vue";
+import Header from "./components/HeaderComp.vue";
 export default {
   components: { Header },
 };
