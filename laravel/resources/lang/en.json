@@ -1,0 +1,9 @@
+{
+    "blog_title" : "Blog Title",
+    "blog_content" : "Blog Content",
+    "created_by" : "Created By",
+    "updated_by" : "Updated By",
+    "updated_date": "Updated Date",
+    "action": "Action",
+    "delete_post": "Post Deleted"
+}
