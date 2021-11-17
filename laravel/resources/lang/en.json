@@ -5,5 +5,12 @@
     "updated_by" : "Updated By",
     "updated_date": "Updated Date",
     "action": "Action",
-    "delete_post": "Post Deleted"
+    "delete_post": "Post Deleted",
+    "delete_select_post": "Posts Deleted",
+    "update_post": "Post Updated",
+    "required_id": "Need selected",
+    "edit": "Edit",
+    "delete": "Delete",
+    "vi": "Vietnamese",
+    "en": "English"
 }

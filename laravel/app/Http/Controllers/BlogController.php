@@ -10,8 +10,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Blog::with('user')->paginate(10);
-
+        $posts = Blog::with('userCreated', 'userUpdated')->paginate(10);
+        //dd($posts);
         return view('blog.index', ['posts' => $posts]);
     }
 
@@ -32,7 +32,7 @@ class BlogController extends Controller
             'title' => $request->title,
             'content' => $request->content,
         ]);
-
+        session()->flash('status', 'update_post');
         return redirect()->route('blog.index');
     }
 
@@ -47,10 +47,13 @@ class BlogController extends Controller
 
     public function deleteAll(Request $request)
     {
-        $id = $request->id;
+        $validate = $request->validate([
+            'id' => 'required'
+        ]);
 
-        // dd($id);
-        Blog::whereIn('id', $id)->delete();
+        // dd($request->id);
+        Blog::whereIn('id', $request->id)->delete();
+        session()->flash('status', 'delete_select_post');
         return redirect()->route('blog.index');
     }
 }

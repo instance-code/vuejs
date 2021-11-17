@@ -1,5 +1,4 @@
 @extends('.layout')
-
 @section('content')
 
 @if(session('status'))
@@ -7,19 +6,33 @@
     {{ __(session('status')) }}
 </div>
 @endif
-<form action="{{ route('blog.post.deleteAll') }}">
+@error('id')
+<div class="alert alert-danger">
+    {{ $message }}
+</div>
+@enderror
+<form action="{{ route('blog.post.deleteAll') }}" method="POST">
+    @csrf
     <div class="input-group mb-3">
-
         <button class="input-group-text px-4 btn-danger" id="deleteSelected">
             Delete Selected
         </button>
-
         <div class="input-group-text p-0">
-            <select class="form-select form-select-lg shadow-none bg-light border-0">
-                <option>Languages</option>
-                <option>English</option>
-                <option>Tiếng việt</option>
-            </select>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    @if (session('locale') === 'vi')
+                    {{ __('vi') }}
+                    @else
+                    {{ __('en') }}
+                    @endif
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{{ route('language', 'vi') }}">{{ __('vi') }}</a></li>
+                    <li><a class="dropdown-item" href="{{ route('language', 'en') }}">{{ __('en') }}</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -40,7 +53,6 @@
                     <td>
                         <input type="checkbox" name="id[]" class="form-check-input" id="checkall"
                             value="{{ $post->id }}" />
-                        {{-- <div class="p-2">{{ $post->id }}</div> --}}
                     </td>
                     <td>
                         <div class="p-2">{{ $post->title }}</div>
@@ -49,24 +61,20 @@
                         <div class="p-2">{{ Str::limit($post->content, 60) }}</div>
                     </td>
                     <td>
-                        <div class="p-2">{{ $post->user->name }}</div>
+                        <div class="p-2">{{ $post->userCreated->name }}</div>
                     </td>
                     <td>
-                        <div class="p-2">{{ $post->user->name }}</div>
+                        <div class="p-2">{{ $post->userUpdated->name }}</div>
                     </td>
                     <td>
                         <div class="p-2">{{ $post->updated_at }}</div>
                     </td>
                     <td>
-                        <a href="{{ route('blog.post.edit', $post->id) }}">
-                            <button class="btn btn-primary btn-xs"><span>Edit</span></button>
+                        <a class="btn btn-primary btn-xs" href="{{ route('blog.post.edit', $post->id) }}"><span>{{
+                                __('edit') }}</span></a>
+                        <a href="{{ route('blog.post.delete', $post->id) }}" class="btn btn-danger btn-xs"><span>{{
+                                __('delete') }}</span>
                         </a>
-
-                        <form action="{{ route('blog.post.delete', $post->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-xs"><span>Delete</span></button>
-                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -79,10 +87,10 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $("#checkall").click(function () {
-				$('input:checkbox').not(this).prop('checked', this.checked);
-			});
+	    $('input:checkbox').not(this).prop('checked', this.checked);
+	});
 
-
+    $('div.alert').delay(3000).slideUp(300);
 </script>
 
 @endsection

@@ -14,8 +14,18 @@ class Blog extends Model
         'content',
     ];
 
-    public function user()
+    public function userCreated()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
     }
+
+    public function userUpdated()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+
+    // public function allUserRelations()
+    // {
+    //     return $this->user->merge($this->userUpdated);
+    // }
 }
