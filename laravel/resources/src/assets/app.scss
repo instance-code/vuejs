@@ -1,4 +1,18 @@
 $red: #ddd;
 body {
-    background: $red;
+    // background: $red;
+    width: 100%;
+}
+table {
+    margin: 0 auto;
+}
+.btn-secondary{
+    background-color: white;
+    color: black;
+}
+.form-group{
+    margin: 30px;
+}
+#btnSubmit{
+    margin-left: 30px;
 }
