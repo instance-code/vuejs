@@ -60,7 +60,7 @@ export default {
         this.current.slice(1) : `-${this.current}`;
     },
     dot() {
-      if (this.current.indexOf('.') === 1) {
+      if (this.current.indexOf('.') === -1) {
         this.append('.');
       }
     },
