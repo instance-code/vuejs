@@ -16,7 +16,17 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">
+                                        <div class="checkAll">
+                                            <label class="label">
+                                      <input class="js-check-all" type="checkbox" name="" data-check-all="language">
+                                      <span class="text">Check All</span>
+                                    </label>
+                                        </div>
+                                    </th>
+
                                     <th scope="col">id</th>
+                                 
                                     <th scope="col">{{__('blogedit.blog_title')}}</th>
                                     <th scope="col">{{__('blogedit.blog_content')}}</th>
                                     <th scope="col">{{__('blogedit.created_by')}}</th>
@@ -28,6 +38,11 @@
                             <tbody>
                                 @foreach ($blogs as $key => $blog)
                                     <tr>
+                                        <th class="item"> 
+                                            <label class="label">
+                                      <input type="checkbox" name="language" value="language1">
+                                    </label>
+                                        </li></th>
                                         <th scope="row">{{ $key }}</th>
                                         <td>{{ $blog->blog_title}}</td>
                                         <td>{{ $blog->blog_content }}</td>

@@ -29,3 +29,26 @@
     </div>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+<script src="">
+    $(function() {
+        $('.js-check-all').on('change', function(event) {
+            var group = $(event.target).data('check-all');
+            var dataCheckGroup = '[data-check-all="' + group + '"]';
+
+            if ($(event.target).prop('checked')) {
+                $('.js-check-all-target')
+                    .filter(dataCheckGroup)
+                    .find('input[type="checkbox"]:not(:disabled)')
+                    .prop('checked', true);
+
+                return;
+            }
+
+            $('.js-check-all-target')
+                .filter(dataCheckGroup)
+                .find('input[type="checkbox"]:not(:disabled)')
+                .prop('checked', false);
+        });
+    });
+</script>
