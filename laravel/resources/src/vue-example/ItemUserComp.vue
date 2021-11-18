@@ -5,12 +5,6 @@
     <td>{{ userData.lastName }}</td>
     <td><button class="btn btn-remove" @click="removeUser">Remove</button></td>
   </tr>
-  <!-- <div style="text-align: center">
-    <input type="text" :value="indexInArray + 1" disabled />
-    <input type="text" :value="userData.firstName" disabled />
-    <input type="text" :value="userData.lastName" disabled />
-    <button class="btn btn-remove" @click="removeUser">Remove</button>
-  </div> -->
 </template>
 
 <script>
