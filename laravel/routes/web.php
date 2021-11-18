@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-Route::get('/{any}', function() {
-    return view('app');
-})->where('any', '.*');
+//Route::get('/{any}', function() {
+//    return view('app');
+//})->where('any', '.*');
+
+//Thay đổi ngôn ngữ
+Route::get('lang/{locale}', function($locale)
+{
+    if(! in_array($locale, ['en', 'vi'])) {
+        abort(404);
+    }
+    session()->put('locale',  $locale);
+    return redirect()->back();
+});
+
+
+Route::resource('/blog', \App\Http\Controllers\BlogController::class);
+
+//Delete all
+Route::delete('/selected-blogs', [BlogController::class, 'deleteCheckedBlogs'])->name('blog.deleteSelected');
