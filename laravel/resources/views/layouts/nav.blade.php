@@ -4,9 +4,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-            <a class="btn btn-danger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" id="btn_delete" class="btn btn-danger"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{__('blogedit.delete')}}
-            </a>
+            </button>
             
           </li>
        
@@ -23,3 +23,4 @@
     
     </div>
   </nav>
+  

@@ -17,12 +17,12 @@ class BlogController extends Controller
     public function index()
     {
         //
+      
+        $blogs=Blogtitle::orderBy('id','DESC')->get();
         $lang=$_GET['lang'];
         session([
             'APP_LOCALE'=>$lang
         ]);
-        $blogs=Blogtitle::orderBy('id','DESC')->get();
-
         return view('blog.index')->with(compact('blogs'));
       
        
@@ -103,5 +103,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+        Blogtitle::find($id)->delete();
+        return redirect()->back()->with('status','Xoá thành công');
     }
 }
