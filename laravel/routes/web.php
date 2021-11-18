@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Request;
 Route::get('/{any}', function() {
     return view('app');
 })->where('any', '.*');
+
+Route::get('/test', function() {
+    return view('example');
+})->where('any', '.*');
