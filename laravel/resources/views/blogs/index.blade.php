@@ -16,7 +16,7 @@
 <body>
   <div>
     <div class="dropdown">
-      <button class="btn btn-danger" onclick="deleteAll()">@lang('lang.delete')</button>
+      <a href="" type="button" class="btn btn-danger">@lang('lang.delete')</a>
       
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
         @lang('lang.language')
@@ -32,12 +32,12 @@
   <table class="table">
     <thead>
       <tr>
-        <th><input type="checkbox" id="checkAll" onclick="setAllCheckbox('allBlog',this)"></th>
+        <th><input type="checkbox" onclick="setAllCheckbox('allBlog',this)" name="checkall"></th>
         <th>id</th>
         <th scope="col">@lang('lang.blogTitle')</th>
         <th scope="col">@lang('lang.blogContent')</th>
         <th scope="col">@lang('lang.createdBy')</th>
-        <th scope="col">@lang('lang.updateBy')</th>
+        <th scope="col">@lang('lang.updatedBy')</th>
         <th scope="col">@lang('lang.updatedDate')</th>
         <th scope="col"></th>
         <th scope="col"></th>
@@ -54,7 +54,7 @@
         <td>{{ $post->updated_by }}</td>
         <td>{{ $post->updated_date }}</td>
         <td><a href="{{ route('post.edit',[$post->id]) }}" type="button" class="btn btn-primary">@lang('lang.edit')</a></td>
-        <td><a href="" type="button" class="btn btn-danger">@lang('lang.delete')</a></td>
+        <td><a href="{{ route('post.delete',[$post->id]) }}" type="button" class="btn btn-danger">@lang('lang.delete')</a></td>
      
       </tr>
       @endforeach
@@ -71,23 +71,11 @@
         input[i].checked = checkbox.checked;
       }
     };
-    function deleteAll(){
-      let checkbox1 = document.getElementById('checkbox1');
-      let checkbox2 = document.getElementById('checkbox2');
-      let row1 = document.getElementById('row1');
-      let row2 = document.getElementById('row2');
-      checkbox1.checked == true ? row1.remove() : alert(1);
-      if(checkbox2.checked == false){
-        alert('hg');
-      }
-      checkbox2.checked == true ? row2.remove() : alert(2);
-      
-    }
+   
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
           integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
           crossorigin="anonymous"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>        -->
 </body>
 </html>

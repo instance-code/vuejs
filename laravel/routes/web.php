@@ -32,6 +32,9 @@ Route::middleware(['web'])->group(function(){
     
     //edit posts
     Route::get('/bloglist/update/{id}','BlogController@edit')->name('post.edit');
-    Route::post('/bloglist/update/{id}','BlogController@update');
+    Route::post('/bloglist/update/{id}','BlogController@update')->name('post.update');
+
+    Route::get('/bloglist/delete/{id}','BlogController@delete')->name('post.delete');
+    // Route::get('/bloglist/checkbox','BlogController@deleteCheckbox')->name('post.checkbox');
 });
 

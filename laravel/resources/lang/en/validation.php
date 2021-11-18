@@ -140,6 +140,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'updated_date' => [
+            'required' => 'this field can not empty, please enter again',
+            'date_format' => 'wrong type datetime, please enter again',
+        ]
     ],
 
     /*

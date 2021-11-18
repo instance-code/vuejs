@@ -5,7 +5,7 @@ return [
     'blogTitle' => 'Blog title',
     'blogContent' => 'Blog content',
     'createdBy' => 'Created by',
-    'updateBy' => 'Update by',
+    'updatedBy' => 'Update by',
     'updatedDate' => 'Updated date',
     'edit' => 'Edit',
     'save' => 'Save',
