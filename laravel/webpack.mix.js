@@ -59,3 +59,4 @@ if (mix.inProduction()) {
 
 mix.js('resources/src/app.js', 'public/js');
 mix.sass('resources/src/assets/app.scss', 'public/css');
+mix.sass('resources/src/assets/bootstrap.scss', 'public/css');

@@ -6,7 +6,6 @@ services:
       dockerfile: docker/Dockerfile
     container_name: trainingapp
     restart: unless-stopped
-    tty: true
     volumes:
       - ./:/var/www/html
     networks:
