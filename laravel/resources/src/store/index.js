@@ -1,9 +1,9 @@
 import { createStore } from 'vuex';
-import errors from './errors';
+import error from './error';
 
 const store = createStore({
   modules: {
-    errors
+    error
   }
 });
 

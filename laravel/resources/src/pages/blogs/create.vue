@@ -1,45 +1,60 @@
 <template>
-  <div class="mb-3">
-    <label class="form-label">Blog title</label>
-    <input type="text" class="form-control" v-model="params.title">
-    <div class="form-text text-danger"></div>
-  </div>
+  {{ errors }}
+  <FormInputComp
+    label="Blog title"
+    :message="errors.title"
+    v-model="title"
+     />
 
-  <div class="mb-3">
-    <label class="form-label">Blog Content</label>
-    <textarea v-model="params.content" class="form-control"></textarea>
-  </div>
+  <FormInputComp
+    label="Blog content"
+    :form-type="false"
+    :message="errors.body"
+    v-model="content"
+  />
+
   <button
-    type="button"
-    class="btn btn-primary"
-    @click.prevent="createBlog"
+  type="button"
+  class="btn btn-primary"
+  @click.prevent="createBlog"
   >Submit</button>
 </template>
 
 <script>
+  import { mapGetters } from "vuex";
+  import FormInputComp from "@/components/FormInputComp";
   export default {
+    components: {
+      FormInputComp
+    },
+
     data() {
       return {
         params: {
           title: "",
           content: "",
-          user_id: 1,
         }
       }
+    },
+
+    computed: {
+      ...mapGetters("error", [
+        "errors"
+      ])
     },
 
     methods: {
       async createBlog() {
         try {
           const { data } = this.$axios({
-            url: "/api/blogs/create",
-            method: "post",
-            data: this.params
+          url: "/api/blogs/create",
+          method: "post",
+          data: this.params
           })
         } catch(error) {
           const { response } = error;
 
-          console.log(response.status)
+          console.log(error)
         }
       }
     }

@@ -1,8 +1,11 @@
 import axios from 'axios';
+import store from '@/store';
 axios.interceptors.request.use( (config) => {
   // clear request error
   config.headers.common['Cache-Control'] = 'no-cache';
   config.headers.common['Pragma'] = 'no-cache';
+  // tenStore/PhuongThuc
+  store.commit('error/resetErrors');
 
   // add csrf token
   const csrf_token = document.head.querySelector('meta[name="csrf-token"]');
@@ -24,6 +27,8 @@ axios.interceptors.response.use(
     return response;
   },
   async (error) => {
+    const { response, status } = error;
+    store.commit('error/setErrors', response.data);
     return Promise.reject(error);
   }
 );

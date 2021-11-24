@@ -23,7 +23,11 @@ Route::get('/blogs', function() {
 });
 
 Route::post('/blogs/create', function() {
-    return \App\Models\Blog::create(request()->all());
+    return response([
+        'title' => 'required',
+        'body' => 'required',
+    ], 500);
+    // return \App\Models\Blog::create(request()->all());
 });
 
 
