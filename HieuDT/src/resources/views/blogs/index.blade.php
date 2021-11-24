@@ -26,9 +26,9 @@
     for (var i = 0; i < checkboxes.length; i++) {
       if (checkboxes[i].checked == true) {
         arr.push(checkboxes[i].getAttribute('blog-id'));
-
       }
     }
+    //lay token
     const el_token = document.getElementsByName('csrf-token');
     const token = el_token[0].getAttribute('content');
 
@@ -36,7 +36,12 @@
   }
 
   async function userAction(arr) {
+    try {
       const res= await axios.post(`http://localhost:82/blogs/deleteByChecked`,arr);
+    } catch (error) {
+      console.log(error);
+    }
+     
   }
 </script>
 <div class="container">
@@ -78,10 +83,10 @@
         <td>{{$blog->created_by}}</td>
         <td>{{$blog->created_at}}</td>
         <td style="display: flex;">
-          <form method="get" action="{{url('blogs/'. $blog->id)}}">
+          <form method="get" action="{{route('blogs.show', $blog->id)}}">
             <button class="btn btn-primary" type="submit">{{__('messages.edit')}}</button>
           </form>
-          <form method="post" action="{{url('blogs/'. $blog->id)}}" onsubmit="return confirm('are u sure?');">
+          <form method="post" action="{{route('blogs.delete', $blog->id)}}" onsubmit="return confirm('are u sure?');">
             @method('delete')
             @csrf
             <button class="btn btn-danger" type="submit">
@@ -94,6 +99,29 @@
 
     </tbody>
   </table>
+
+  <br>
+
+  <form action="http://localhost:82/test-checkbox" method="post">
+        @csrf
+        <table>
+            <tr>
+              <td><input type="checkbox" name="checkbox" value="1"></td> 
+            </tr>
+            <tr>
+               <td><input type="checkbox" name="checkbox" value="2"></td> 
+             </tr>
+             <tr>
+               <td><input type="checkbox" name="checkbox" value="3"></td> 
+             </tr>
+             <tr>
+               <td><input type="checkbox" name="checkbox" value="4"></td> 
+             </tr>
+           
+        </table>
+        <button type="submit">submit</button>
+    </form>
+
 </div>
 
 @stop

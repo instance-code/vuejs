@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/{any}', function () {
-//     return view('app');
-// })->where('any','.*');
+ Route::get('/{any}', function () {
+     return view('app');
+ })->where('any','.*');
 
 Route::get('/', function(){
     return view('home');
@@ -66,3 +66,12 @@ Route::get('/changeLang/{lang}',function($lang){
      return redirect()->route('blogs.index');
 })->name('changeLang');
 
+
+Route::post('testHttpDelete', function(Request $request){
+    return $request;
+});
+
+
+Route::post('/test-checkbox',function(Request $request){
+    dd($request->all());
+});

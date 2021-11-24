@@ -5,6 +5,8 @@ import Calculator from '../layouts/Calculator.vue'
 import UserComp from '../components/UserComp.vue'
 import user from '../pages/user.vue'
 import ChangeLang from '../layouts/ChangeLang.vue'
+import ListBlog from '../pages/blogs/index.vue'
+import CreateBlog from '../pages/blogs/create.vue'
 
 import { createWebHistory, createRouter } from "vue-router";
 
@@ -41,7 +43,18 @@ const routes = [
         path:'/change-lang',
         name: 'ChangeLang',
         component: ChangeLang
+    },
+    {
+        path:'/list-blog',
+        name: 'ListBlog',
+        component: ListBlog
+    },
+    {
+        path:'/create-blog',
+        name: 'CreateBlog',
+        component: CreateBlog
     }
+ 
  
 ]
 

@@ -14,13 +14,10 @@ export default {
         }
     },
     created() {
-        this.fetchData();
+        
     },
     methods: {
-       async fetchData(){
-          const res= await axios.get(`http://localhost:81/api/posts`);
-          this.data=res.data
-        }
+       
     },
 
 }
