@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Request;
 Route::get('/{any}', function() {
     return view('app');
 })->where('any', '.*');
+
+// Route::group(['prefix' => 'blogs'], function() {
+//     Route::get('', 'BlogController@index')->name('blogs.index');
+//     Route::get('create', 'BlogController@create')->name('blogs.create');
+//     Route::post('store', 'BlogController@store')->name('blogs.store');
+//     Route::get('edit', 'BlogController@edit')->name('blogs.edit');
+//     Route::post('update', 'BlogController@update')->name('blogs.update');
+//     Route::post('delete', 'BlogController@destroy')->name('blogs.delete');
+// });

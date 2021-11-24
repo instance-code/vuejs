@@ -18,10 +18,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/blogs', function() {
+    return \App\Models\Blog::all();
+});
 
-
-
-
+Route::post('/blogs/create', function() {
+    return response([
+        'title' => 'required',
+        'body' => 'required',
+    ], 500);
+    // return \App\Models\Blog::create(request()->all());
+});
 
 
 
