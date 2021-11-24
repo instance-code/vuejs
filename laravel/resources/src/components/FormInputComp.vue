@@ -7,7 +7,11 @@
       class="form-control"
       @input="handleValue"
     >
-    <textarea v-else type="text" class="form-control"></textarea>
+    <textarea
+      v-else type="text"
+      class="form-control"
+      @input="handleValue"
+    ></textarea>
     <div class="form-text text-danger">{{ message }}</div>
   </div>
 </template>
@@ -34,7 +38,6 @@
 
     methods: {
       handleValue(event) {
-        console.log(event.target.value);
         this.$emit('update:modelValue', event.target.value)
       }
     }

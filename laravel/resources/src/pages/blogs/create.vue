@@ -3,14 +3,14 @@
   <FormInputComp
     label="Blog title"
     :message="errors.title"
-    v-model="title"
+    v-model="params.title"
      />
 
   <FormInputComp
     label="Blog content"
     :form-type="false"
     :message="errors.body"
-    v-model="content"
+    v-model="params.content"
   />
 
   <button
@@ -41,6 +41,16 @@
       ...mapGetters("error", [
         "errors"
       ])
+    },
+
+    // nuxt js
+    async created() {
+    },
+
+    async mounted() {
+    },
+
+    unmounted() {
     },
 
     methods: {
