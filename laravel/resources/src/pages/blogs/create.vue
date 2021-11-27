@@ -1,4 +1,4 @@
-<template>
+<template lang="">
   {{ errors }}
   <FormInputComp
     label="Blog title"

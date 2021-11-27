@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Czim\Repository\RepositoryServiceProvider::class,
+        //repository service
+        InstanceCode\Repository\Providers\RepositoryServiceProvider::class,
 
     ],
 
@@ -229,6 +230,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Repository' => InstanceCode\Repository\Facades\Repository::class,
+        
         
         
     ],

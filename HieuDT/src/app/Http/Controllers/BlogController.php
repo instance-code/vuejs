@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
+use App\Repositories\Blog\BlogInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 
 class BlogController extends Controller
 {
+
+    public function __construct(
+        protected BlogInterface $blog
+    )
+    {
+        
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +29,11 @@ class BlogController extends Controller
     {
         //
         //App::setLocale(session('lang'));
-        $data = Blog::all();
-        return view('blogs.index')->with(['blogs' => $data]);
+        //blade
+        // $data = Blog::all();
+        // return view('blogs.index')->with(['blogs' => $data]);
+
+        return Blog::all();
     }
 
     /**
@@ -42,12 +55,14 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
-        //
         $request->validated();
-        $res = Blog::create($request->except('_token'));
-        if ($res) {
-            return $this->index();
-        }
+        // $res = Blog::create($request->except('_token'));
+        // if ($res) {
+        //     return $this->index();
+        // }
+        
+
+
     }
 
     /**
@@ -59,7 +74,9 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::find($id);
-        return view('blogs.edit')->with(['blog' => $blog]);
+        // return view('blogs.edit')->with(['blog' => $blog]);
+
+        return $blog;
     }
 
     /**
@@ -96,19 +113,26 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {   //
-        $res =  Blog::destroy($id);
-        if ($res) {
-            return $this->index();
-        }
+        // $res =  Blog::destroy($id);
+        // if ($res) {
+        //     return $this->index();
+        // }
+        $res=Blog::destroy($request->id);
+        return $res;
     }
     public function deleteByChecked(Request $request)
     {
+        $res=true;
         $arr = $request->all();
+
         for ($i = 0; $i < count($arr); $i++) {
-            Blog::destroy($arr[$i]);
+           $r= Blog::destroy($arr[$i]);
+           if(!$r) $res=false;
         }
-        return  $this->index();
+        // return  $this->index();
+        return $res;
+
     }
 }

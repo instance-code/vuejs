@@ -1,7 +1,6 @@
 <template >
 <button type="button" class="btn btn-primary">
     <slot name="content">Primary</slot>
-
 </button>
 </template>
 <script>

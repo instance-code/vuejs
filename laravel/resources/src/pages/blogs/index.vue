@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <keep-alive>
-        <tr v-for="blog in blogs">
+        <tr v-for="blog in blogs" :key="blog.id">
           <td>
             <input
               class="checkbox"

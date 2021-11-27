@@ -1,11 +1,9 @@
 <template >
   <div id="app">
     <Header></Header>
-    <transition >
-      <keep-alive>
-        <router-view class="mx-5"></router-view>
-      </keep-alive>
-    </transition>
+    
+        <router-view></router-view>
+      
 
    
   </div>

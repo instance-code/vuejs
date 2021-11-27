@@ -54,9 +54,8 @@ if(mix.inProduction()){
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+
 mix.js('resources/src/main.js','public/js').vue();
+mix.sass('resources/src/assets/bootstrap.scss', 'public/css');
+mix.sass('resources/src/assets/app.scss', 'public/css');
+

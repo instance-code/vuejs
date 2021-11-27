@@ -1,24 +1,59 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Repositories Name
+    |--------------------------------------------------------------------------
+    | Default repository directory
+    |
+    */
+    'path' => 'app/Repositories',
 
-    'generate' => [
+    /*
+     * Default repository namespace
+     */
+    'namespace' => 'App\Repositories',
 
-        // The namespace in which generated repositories are placed.
-        'namespace' => 'App\\Repositories',
+    'naming' => 'singular', // plural | singular
 
-        // The base repository class to extend.
-        'base' => Czim\Repository\BaseRepository::class,
-
-        // The suffix expected in a given repository class name.
-        // This will be subtracted to determine the related model name.
-        'suffix' => 'Repository',
-
-        // The locations where Eloquent models are stored.
-        'models' => 'App',
+    'response' => [
+        'headers' => [
+           'Content-Type' => 'application/json,charset=UTF-8',
+            // 'Access-Control-Allow-Origin' => 'http://localhost.com(API呼び出し元ドメイン)',
+            'Access-Control-Allow-Credentials' => 'TRUE',
+            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, DELETE, PUT, PATCH',
+            'Access-Control-Allow-Headers' => 'x-requested-with',
+            'Access-Control-Max-Age' => '864,000',
+        ],
     ],
 
-    // The default number of items per page when paginating results
-    'perPage' => 1
+    /*
+     * Default model generate
+     */
+    'model' => [
+        'namespace' => 'App\Models',
+        'path' => 'app/Models',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default handler
+    |--------------------------------------------------------------------------
+    | set false if want custom handler
+    | ValidationException
+    | UnauthorizedHttpException
+    | FatalErrorException
+    | QueryException
+    */
+    'default_handler' => true,
+
+    /*
+     * Default binding
+     * [ RepoInterface::class => Repository::class ]
+     */
+    'bindings' => [
+        \App\Repositories\Blog\BlogInterface::class => \App\Repositories\Blog\BlogRepository::class
+    ],
 
 ];

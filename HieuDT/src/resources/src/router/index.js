@@ -7,6 +7,7 @@ import user from '../pages/user.vue'
 import ChangeLang from '../layouts/ChangeLang.vue'
 import ListBlog from '../pages/blogs/index.vue'
 import CreateBlog from '../pages/blogs/create.vue'
+import DetailBlog from '../pages/blogs/edit.vue'
 
 import { createWebHistory, createRouter } from "vue-router";
 
@@ -53,6 +54,11 @@ const routes = [
         path:'/create-blog',
         name: 'CreateBlog',
         component: CreateBlog
+    },
+    {
+        path:'/detail-blog/:id',
+        name:"DetailBlog",
+        component: DetailBlog
     }
  
  
