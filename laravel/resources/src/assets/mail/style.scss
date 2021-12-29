@@ -8,5 +8,44 @@
     font-size: 18px;
 }
 .wrapcontent{
-    background-color: #bfeff9;
+    color: black;
+    font-size: 18px;
+}
+.star-red{
+    color: red;
+}
+fieldset{
+    border-radius: 5px;
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    margin: 0 0 20px 0px;
+}
+legend{
+    font-weight: 600;
+    width:inherit; 
+    padding:0 10px; 
+    border-bottom:none;
+}
+.wrap-mail{
+    margin: 0px 0px 0 -13px;
+}
+input.ip-fieldset{
+    margin: 0 0 0 0px;
+    width: 729px;
+}
+svg.icon-fieldset{
+    margin: 0 0 0 23px;
+}
+.radio-title{
+    padding: 0 0 0 38px;
 }
