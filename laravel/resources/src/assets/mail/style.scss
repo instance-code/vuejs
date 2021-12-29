@@ -61,3 +61,25 @@ svg.icon-fieldset{
 .button-after{
     margin: 0 0 0 -35px;
 }
+thead.table-head{
+    background-color: #bfeff9;
+}
+.button-plus{
+    margin: 0 0 0 -35px;
+    padding: 0 6px 0 5px;
+    float: right;
+}
+.col-table-head{
+    width: 220px;
+}
+th.last{
+    width: 99px; 
+}
+table.table-mail{
+    height: 100px;
+    overflow-y:auto;
+}
+tbody.overfollow-body{
+    overflow-x: auto;
+    height: 200px;
+}
