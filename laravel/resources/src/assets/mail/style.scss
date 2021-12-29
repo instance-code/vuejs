@@ -1,9 +1,9 @@
 .wrap {
     background-color: #bfeff9;
-    padding: 9px 0 9px 0px;
+    padding: 9px 0 9px 0;
 }
 .wrap-icon{
-    padding: 9px 0 9px 0px;
+    padding: 9px 0 9px 0;
     color: black;
     font-size: 18px;
 }
@@ -28,19 +28,19 @@ fieldset{
     border-style: groove;
     border-color: threedface;
     border-image: initial;
-    margin: 0 0 20px 0px;
+    margin: 0 0 20px 0;
 }
 legend{
     font-weight: 600;
-    width:inherit; 
-    padding:0 10px; 
+    width:inherit;
+    padding:0 10px;
     border-bottom:none;
 }
 .wrap-mail{
-    margin: 0px 0px 0 -13px;
+    margin: 0  0  0 -13px;
 }
 input.ip-fieldset{
-    margin: 0 0 0 0px;
+    margin: 0 0 0 0 ;
     width: 729px;
 }
 svg.icon-fieldset{
@@ -48,4 +48,16 @@ svg.icon-fieldset{
 }
 .radio-title{
     padding: 0 0 0 38px;
+}
+.header-modal{
+    background-color: #bfeff9;
+}
+.modal-textbox{
+    margin: 15px 0 15px -14px;
+}
+.modal-button{
+    margin: 15px 0 15px 0;
+}
+.button-after{
+    margin: 0 0 0 -35px;
 }
