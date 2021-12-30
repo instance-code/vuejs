@@ -1,6 +1,9 @@
 .wrap {
     background-color: #bfeff9;
     padding: 9px 0 9px 0;
+    position: fixed;
+    width: 1140px;
+    z-index: 9;
 }
 .wrap-icon{
     padding: 9px 0 9px 0;
@@ -73,13 +76,18 @@ thead.table-head{
     width: 220px;
 }
 th.last{
-    width: 99px; 
+    width: 99px;
 }
-table.table-mail{
-    height: 100px;
+div.table-mail{
     overflow-y:auto;
+    height: 200px
 }
 tbody.overfollow-body{
     overflow-x: auto;
     height: 200px;
+}
+.modal-list-wrap{
+    height: 100px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }

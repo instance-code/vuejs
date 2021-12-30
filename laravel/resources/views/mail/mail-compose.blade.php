@@ -4,9 +4,9 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-md-center wrap">
-            也称乱数
-        </div>
+            <div class="row justify-content-md-center wrap ">
+                也称乱数
+            </div>
         <form class="wrapcontent">
             <div class="row wrap-icon">
                 <div class="col-2">

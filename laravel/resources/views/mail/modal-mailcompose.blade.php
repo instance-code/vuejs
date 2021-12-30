@@ -68,14 +68,14 @@
                             哑元文本
                         </div>
                     </div>
-                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <div class="c-tbl--scroll table-mail">
                         <table class="table table-bordered table-striped mb-0 table-mail ">
                             <thead class="table-head ">
                                 <tr>
                                     <th scope="col" class="col-table-head">
                                         <span class="justify-content-md-center">
                                             使用的
-                                        </span> 
+                                        </span>
                                         <button type="button" class="btn btn-primary button-plus">+</button>
                                     </th>
                                     <th scope="col" class="col-table-head">这本书</th>
@@ -86,6 +86,7 @@
                                     </th>
                                 </tr>
                             </thead>
+
                             <tbody class="overfollow-body">
                                 <tr>
                                     <td>Mark
@@ -97,20 +98,6 @@
                                     <td>@mdo
                                         <button type="button" class="btn btn-primary button-plus">+</button>
                                     </td>
-                                    <td>                                  
-                                        <button type="button" class="btn btn-primary">的荒谬</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob
-                                        <button type="button" class="btn btn-primary button-plus">+</button>
-                                    </td>
-                                    <td>Thornton
-                                        <button type="button" class="btn btn-primary button-plus">+</button>
-                                    </td>
-                                    <td>@fat
-                                        <button type="button" class="btn btn-primary button-plus">+</button>
-                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-primary">的荒谬</button>
                                     </td>
@@ -129,9 +116,97 @@
                                         <button type="button" class="btn btn-primary">的荒谬</button>
                                     </td>
                                 </tr>
-                                
+                                <tr>
+                                    <td>Jacob
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>Thornton
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>@fat
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" >的荒谬</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>Thornton
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>@fat
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" >的荒谬</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>Thornton
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>@fat
+                                        <button type="button" class="btn btn-primary button-plus">+</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" >的荒谬</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="row modal-textbox">
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                    </div>
+                    <div class="modal-list-wrap">
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                        <div class="col-2">
+                            哑元文本
+                        </div>
+                    </div>
+
+                    <div class="row modal-textbox">
+                        <div class="col-10">
+                            <button type="button" class="btn btn-primary">的荒谬</button>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-primary">的荒谬</button>
+                        </div>
                     </div>
                 </div>
             </div>
